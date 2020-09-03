@@ -6,7 +6,6 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import java.util.Random;
 
 public class DataGenerator {
     private DataGenerator(){
@@ -19,16 +18,14 @@ public class DataGenerator {
         private String phone;
     }
 
-    public static class DateMeeting {
-        public String dateMeeting(int plusDays) {
-            final String dateFormatWithDots = "dd.MM.yyyy";
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormatWithDots);
 
-            LocalDate newDateMeeting = LocalDate.now().plusDays(plusDays);
-            String dateMeeting = newDateMeeting.format(formatter);
-            return dateMeeting;
-        }
+    public static String getDateMeeting(int plusDays) {
+        final String dateFormatWithDots = "dd.MM.yyyy";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormatWithDots);
+        LocalDate newDateMeeting = LocalDate.now().plusDays(plusDays);
+        return newDateMeeting.format(formatter);
     }
+
 
     public static UserInfo getUserInfo() {
         Faker faker = new Faker(new Locale("ru"));
